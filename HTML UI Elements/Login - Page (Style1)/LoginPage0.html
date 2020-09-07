@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <!-- <link href="https://webfonts.ffonts.net/index.php?p=css&amp;id=30326" rel="stylesheet" type="text/css">  BSDC Font Family -->
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+        <script>
+            // Load random login avatar image
+            var LoginAvatarImg = [
+                "https://1.bp.blogspot.com/-Ce4NZPlF7q0/XTHE_xvq__I/AAAAAAAAADs/bUzCIahEJUgYDhBa1sEYIK557u4eZ-1fACLcBGAs/s320/avatar6.png",
+                "https://1.bp.blogspot.com/-LQieAmd9NNo/XTHFAB8EauI/AAAAAAAAADw/5LmC91iktbU_uMnH9Ml-nXoOZ3WjDKexwCLcBGAs/s320/img_avatar2.png",
+                "https://1.bp.blogspot.com/-L4mMeO4FeW4/XTHFAFnTilI/AAAAAAAAAD0/n61ktfLZQ-4AkqdzBKlNDSBI7IDwpKBYwCLcBGAs/s320/img_avatar3.png",
+                "https://1.bp.blogspot.com/-HGGOHUl7DdI/XTHFA2VlkhI/AAAAAAAAAD4/P_He9EQMIi82hw5V9tu2IfteC6vjj5KrwCLcBGAs/s320/img_avatar4.png",
+                "https://1.bp.blogspot.com/-mE4W0rT1Tbc/XTHFBELpUyI/AAAAAAAAAD8/EEHJZMQNDAQIfC52bDvjLx3EJfQmOG3cwCLcBGAs/s320/img_avatar5.png",
+                "https://1.bp.blogspot.com/-lIqLIEnemes/XTHFBQyTeeI/AAAAAAAAAEA/PLHcSHAX-D0qbonTRE8QcWbc0ligIEaawCLcBGAs/s320/login.png",
+            ];
+
+            var LoginAvatarImageID = Math.floor(Math.random() * 6);
+
+            window.onload = function () {
+                var img = document.createElement("img");
+                img.src = LoginAvatarImg[LoginAvatarImageID];
+                img.className = "avatar";
+                document.getElementById("AvatarImgcontainer").appendChild(img);
+            };
+        </script>
+
+        <style>
+	        @font-face {
+			  	font-family: 'Streetvertising-Bold';
+				src:  url('./Font/Streetvertising/Streetvertising-Bold.ttf.woff') format('woff'),
+			    url('./Font/Streetvertising/Streetvertising-Bold.ttf.svg') format('svg'),
+			    url('./Font/Streetvertising/Streetvertising-Bold.ttf.eot'),
+			    url('./Font/Streetvertising/Streetvertising-Bold.ttf.eot') format('embedded-opentype'); 
+			    font-weight: normal;
+			    font-style: normal;
+			}
+        
+        
+        
+        
+        body {
+		  	font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+			background-image: url(https://logincdn.msauth.net/shared/1.0/content/images/backgrounds/2_bc3d32a696895f78c19df6c717586a5d.svg);
+			/*
+			background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+			width: 100wh;
+			height: 90vh;
+			color: #fff;			
+			background-size: 400% 400%;
+			-webkit-animation: Gradient 15s ease infinite;
+			-moz-animation: Gradient 15s ease infinite;
+			animation: Gradient 15s ease infinite;
+			*/
+		}
+
+		/*@-webkit-keyframes Gradient {
+			0% {
+				background-position: 0% 50%
+			}
+			50% {
+				background-position: 100% 50%
+			}
+			100% {
+				background-position: 0% 50%
+			}
+		}
+
+		@-moz-keyframes Gradient {
+			0% {
+				background-position: 0% 50%
+			}
+			50% {
+				background-position: 100% 50%
+			}
+			100% {
+				background-position: 0% 50%
+			}
+		}
+
+		@keyframes Gradient {
+			0% {
+				background-position: 0% 50%
+			}
+			50% {
+				background-position: 100% 50%
+			}
+			100% {
+				background-position: 0% 50%
+			}
+		}*/
+		        
+        
+            input {
+                outline: none;
+                font: 400 16px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+            }
+
+            .inputTxt {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                outline: none;
+                box-sizing: border-box;
+                border-radius: 2px;
+            }
+            .inputTxt:focus-within {
+                border-bottom: 2px solid #1a73e8;
+            }
+            
+            .inputPswd{
+            	width: calc(100% - 70px); 
+            	padding: 12px 20px; 
+            	padding-right: 6px; 
+            	border: none;
+            }
+            
+            .col2{            	
+    			width: calc(50% - 14px);
+            }
+            
+            .pswdDisplayBtn{
+            	display: inline-block; 
+            	vertical-align: bottom; 
+            	padding: 5px; 
+            	width: 30px; 
+            	cursor: pointer; 
+            	color: #525252b0;
+            }
+
+            button {
+                background-color: #1a73e8;
+                border-radius: 4px;
+                font: 500 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+                color: #fff;
+                padding: 12px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+
+            button:hover {
+                background-color: #1b66c9;
+            }
+
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+                position: relative;
+            }
+
+            img.avatar {
+                width: 40%;
+                border-radius: 50%;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            span.psw {
+                float: right;
+                padding-top: 16px;
+            }
+            /* Modal Content/Box */
+
+            .modal-content {
+                background-color: #fefefe;
+                margin: 5% auto 15% auto;
+                padding-top: 20px;
+                width: 80%;
+                max-width: 400px;
+                border-radius: 6px;
+            }
+
+            .modal-content a {
+                text-decoration: none;
+                color: #5f6368;
+                font-size: 14px;
+                line-height: 1.4286;
+            }
+            .modal-content a:hover {
+                color: #1a73e8;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            .card {
+                padding: 42px;
+                margin-bottom: 28px;
+                background-color: #fff;
+                -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+            }
+
+            .card:hover {
+                box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                width: 20px;
+            }
+
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 50px;
+                background-color: #555555d6;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 6px 2px;
+                position: absolute;
+                z-index: 1;
+                bottom: -50%;
+                left: 8px;
+                opacity: 0;
+                transition: opacity 0.3s;
+                font-size: 6px;
+                border-radius: 2px;
+                transition: all 0.2s ease;
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+            }
+
+            .tooltip .tooltiptext::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #555 transparent transparent transparent;
+            }
+
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                width: 100px;
+                font-size: 12px;
+                bottom: -114%;
+                left: -50px;
+                opacity: 1;
+            }
+            
+            .tooltip i {
+            	vertical-align: middle; 
+            	max-width: 34px; 
+            	overflow: hidden;
+            }
+            /* Add Zoom Animation */
+
+            .animate {
+                -webkit-animation: animatezoom 0.6s;
+                animation: animatezoom 0.6s;
+            }
+
+            @-webkit-keyframes animatezoom {
+                from {
+                    -webkit-transform: scale(0);
+                }
+                to {
+                    -webkit-transform: scale(1);
+                }
+            }
+
+            @keyframes animatezoom {
+                from {
+                    transform: scale(0);
+                }
+                to {
+                    transform: scale(1);
+                }
+            }
+
+            @media screen and (max-width: 300px) {
+                span.psw {
+                    display: block;
+                    float: none;
+                }
+                .cancelbtn {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <form class="modal-content card animate" action="/action_page.php">
+        
+            <div class="imgcontainer" id="AvatarImgcontainer">
+                <!--
+                <img id="LoginAvatarImg" src="" alt="Avatar" class="avatar"  onLoad="loadAvatarImage()"/>           
+			    <div style="font-family: 'Streetvertising-Bold'; font-size: 26px; text-align: center; color: #009688; padding: 20px 0; margin-top: -40px;">BSDC</div>
+			    <div style="font-size: 28px; font-weight: 300;">Sign in</div>
+			    -->
+
+            </div>
+                        
+            <div class="container">
+            
+                <input class="inputTxt" type="text" placeholder="Username" name="uname" required />
+                
+                <div class="inputTxt" style="padding: 0px;">
+                    <input id="Userpswd" class="inputPswd"  type="password" placeholder="Password" name="psw" required />
+                    <div class="pswdDisplayBtn">
+                        <div id="ShowPassword" onclick="HidePassword()" class="tooltip" style="display: none;">
+                            <i class="material-icons" >visibility_outline</i>
+                            <span class="tooltiptext">Hide password</span>
+                        </div>
+                        <div id="HidePassword" onclick="ShowPassword()" class="tooltip">
+                            <i class="material-icons" >visibility_off_outline</i>
+                            <span class="tooltiptext">Show password</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit">Login</button>
+                <div style="text-align: center; font-size: 13px; padding: 4px;"><a href="#">Forgot Password</a></div>
+            </div>
+            <div class="container" style="background-color: #f1f1f1; text-align: center; font-size: 14px; line-height: 1.4286; color: #232221;">Don't have an account? <a href="#" style="color: #e91e63;">Sign up</a></div>
+        </form>
+        
+        
+        
+        
+        <form id="createAccount" class="modal-content card animate" action="/action_page.php">
+        
+            <div class="imgcontainer" id="AvatarImgcontainer">
+                <!--
+                <img id="LoginAvatarImg" src="" alt="Avatar" class="avatar"  onLoad="loadAvatarImage()"/>           
+			    <div style="font-family: 'Streetvertising-Bold'; font-size: 26px; text-align: center; color: #009688; padding: 20px 0; margin-top: -40px;">BSDC</div>
+			    <div style="font-size: 28px; font-weight: 300;">Sign in</div>
+			    -->
+
+            </div>
+                        
+            <div class="container">
+            
+                <input class="inputTxt" type="text" placeholder="Username" name="uname" required />
+                
+                <div class="inputTxt" style="padding: 0px;">
+                    <input id="Userpswd" class="inputPswd"  type="password" placeholder="Password" name="psw" required />
+                    <div class="pswdDisplayBtn">
+                        <div id="ShowPassword" onclick="HidePassword()" class="tooltip" style="display: none;">
+                            <i class="material-icons" >visibility_outline</i>
+                            <span class="tooltiptext">Hide password</span>
+                        </div>
+                        <div id="HidePassword" onclick="ShowPassword()" class="tooltip">
+                            <i class="material-icons" >visibility_off_outline</i>
+                            <span class="tooltiptext">Show password</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit">Login</button>
+                <div style="text-align: center; font-size: 13px; padding: 4px;"><a href="#">Forgot Password</a></div>
+            </div>
+            <div class="container" style="background-color: #f1f1f1; text-align: center; font-size: 14px; line-height: 1.4286; color: #232221;">Don't have an account? <a href="#" style="color: #e91e63;">Sign up</a></div>
+        </form>
+        
+    </body>
+    
+    
+    
+  	<script>
+  		function ShowPassword() {
+            document.getElementById('ShowPassword').style.display = "block";
+            document.getElementById('Userpswd').type = "text";
+            document.getElementById('HidePassword').style.display = 'none';
+        }
+
+        function HidePassword() {
+            document.getElementById('ShowPassword').style.display = "none";
+            document.getElementById('Userpswd').type = "password";
+            document.getElementById('HidePassword').style.display = 'block';
+        }
+                
+	</script>
+    
+    
+</html>

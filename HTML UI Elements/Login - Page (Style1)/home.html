@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+        <meta name="viewport" content="width=device-width, initial-scale=1" />       
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />        
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+       
+        <style>
+        
+	        @font-face {
+			  	font-family: 'Streetvertising-Bold';
+				src:  url('./Font/Streetvertising/Streetvertising-Bold.ttf.woff') format('woff'),
+			    url('./Font/Streetvertising/Streetvertising-Bold.ttf.svg') format('svg'),
+			    url('./Font/Streetvertising/Streetvertising-Bold.ttf.eot'),
+			    url('./Font/Streetvertising/Streetvertising-Bold.ttf.eot') format('embedded-opentype'); 
+			    font-weight: normal;
+			    font-style: normal;
+			}
+        
+        
+        
+        
+	        body {
+			  	font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+				background-image: url(./Img/login-bg.svg);
+			}
+
+        
+            input {
+                outline: none;
+                font: 400 16px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+            }
+
+            .inputTxt {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                outline: none;
+                box-sizing: border-box;
+                border-radius: 2px;
+            }
+            
+            .inputTxt:focus-within {
+                border-bottom: 2px solid #1a73e8;
+            }
+            
+            .inputPswd{
+            	width: calc(100% - 70px); 
+            	padding: 12px 20px; 
+            	padding-right: 6px; 
+            	border: none;
+            }            
+                       
+            .pswdDisplayBtn{
+            	display: inline-block; 
+            	vertical-align: middle; 
+            	padding: 5px; 
+            	width: 30px; 
+            	cursor: pointer; 
+            	color: #525252b0;
+            	display: inline-block;
+            }
+            
+            .col2{
+            	width: calc(50% - 14px);
+            }
+            .col2.mrgR{
+            	margin-right: 14px;
+            }
+            
+            
+            .setPswdBlock{
+            	width: calc(100% - 50px); 
+            	display: inline-block;
+            }
+            
+			            
+			@media only screen and (max-width: 600px) {
+				 .col2.mrgR{
+				    margin-right: 1px;
+				  }
+				 .col2{
+	            	width:100%;
+	             }
+	             .pswdDisplayBtn{
+	             	vertical-align: top;
+	    			margin-top: 8px;
+	             }              	
+			}
+            
+            .actionButton {
+                background-color: #1a73e8;
+                margin-top: 18px;
+                border-radius: 4px;
+                font: 500 14px Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+                color: #fff;
+                padding: 12px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+
+            .actionButton:hover {
+                background-color: #1b66c9;
+            }
+
+            .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+                position: relative;
+            }
+
+            img.avatar {
+                width: 40%;
+                border-radius: 50%;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            span.psw {
+                float: right;
+                padding-top: 16px;
+            }
+            /* Modal Content/Box */
+
+            .modal-content {
+                background-color: #fefefe;
+                margin: 5% auto 15% auto;
+                padding-top: 20px;
+                width: 80%;
+                max-width: 400px;
+                border-radius: 6px;
+            }
+
+            .modal-content a {
+                text-decoration: none;
+                color: #5f6368;
+                font-size: 14px;
+                line-height: 1.4286;
+            }
+            .modal-content a:hover {
+                color: #1a73e8;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            .card {
+            	width: calc(100% - 100px);            	
+                padding: 42px;
+                margin-bottom: 28px;
+                background-color: #fff;
+                -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                transition: 0.3s;
+            }
+
+            .card:hover {
+                box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                width: 20px;
+            }
+
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 50px;
+                background-color: #555555d6;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 6px 2px;
+                position: absolute;
+                z-index: 1;
+                bottom: -50%;
+                left: 8px;
+                opacity: 0;
+                transition: opacity 0.3s;
+                font-size: 6px;
+                border-radius: 2px;
+                transition: all 0.2s ease;
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+            }
+
+            .tooltip .tooltiptext::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #555 transparent transparent transparent;
+            }
+
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                width: 100px;
+                font-size: 12px;
+                bottom: -114%;
+                left: -50px;
+                opacity: 1;
+            }
+            
+            .tooltip i {
+            	vertical-align: middle; 
+            	max-width: 34px; 
+            	overflow: hidden;
+            }
+            /* Add Zoom Animation */
+
+            .animate {
+                -webkit-animation: animatezoom 0.6s;
+                animation: animatezoom 0.6s;
+            }
+
+            @-webkit-keyframes animatezoom {
+                from {
+                    -webkit-transform: scale(0);
+                }
+                to {
+                    -webkit-transform: scale(1);
+                }
+            }
+
+            @keyframes animatezoom {
+                from {
+                    transform: scale(0);
+                }
+                to {
+                    transform: scale(1);
+                }
+            }
+
+            @media screen and (max-width: 300px) {
+                span.psw {
+                    display: block;
+                    float: none;
+                }
+                .cancelbtn {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <form id="signinAccount" class="modal-content card animate" action="/action_page.php">
+        
+            <div class="imgcontainer" id="AvatarImgcontainer"> 
+			    <div style="font-family: 'Streetvertising-Bold'; font-size: 26px; text-align: center; color: #009688; padding: 20px 0; margin-top: -40px;">abonzer</div>
+			    <div style="font-size: 28px; font-weight: 300;">Sign in</div>
+
+            </div>
+                        
+            <div class="container">
+            
+                <input class="inputTxt" type="text" placeholder="Username" name="uname" required />
+                
+                <div class="inputTxt" style="padding: 0px;">
+                    <input id="Userpswd" class="inputPswd"  type="password" placeholder="Password" name="psw" required />
+                    <div class="pswdDisplayBtn">
+                        <div class="tooltip ShowPassword" onclick="HidePassword('inputPswd')" style="display: none;">
+                            <i class="material-icons" >visibility_outline</i>
+                            <span class="tooltiptext">Hide password</span>
+                        </div>
+                        <div class="tooltip HidePassword" onclick="ShowPassword('inputPswd')" >
+                            <i class="material-icons" >visibility_off_outline</i>
+                            <span class="tooltiptext">Show password</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="actionButton" style="margin-top: 18px">Login</button>
+                <div style="text-align: center; font-size: 13px; padding: 4px;"><a href="#">Forgot Password</a></div>
+            </div>
+            <div class="container" style="background-color: #f1f1f1; text-align: center; font-size: 14px; line-height: 1.4286; color: #232221;">Don't have an account? <a href="#signup" style="color: #e91e63;" onclick="signupPage()">Sign up</a></div>
+        </form>
+        
+        
+        <form id="createAccount" class="modal-content card animate" style="max-width: 800px; display: none;" action="/action_page.php">
+        
+            <div class="imgcontainer" id="AvatarImgcontainer"> 
+			    <div style="font-family: 'Streetvertising-Bold'; font-size: 26px; text-align: center; color: #009688; padding: 20px 0; margin-top: -40px;">abonzer</div>
+			    <div style="font-size: 28px; font-weight: 300;">Create account</div>
+
+            </div>
+                        
+            <div class="container">
+            
+                <input class="inputTxt col2 mrgR" type="text" placeholder="First name" name="fname" required />
+                <input class="inputTxt col2" type="text" placeholder="Last name" name="lname" required />
+                
+                <input class="inputTxt col2 mrgR" type="text" placeholder="Designation" name="designation" required />
+                <input class="inputTxt col2" type="text" placeholder="Employee id" name="employeeId" required />
+                
+                <input class="inputTxt" type="text" placeholder="Phone number" name="phoneNo" required />
+                <input class="inputTxt" type="text" placeholder="Email address" name="emailaddr" required />
+                
+                <div>
+					<div class="setPswdBlock" >
+						 <input id="Userpswd" class="inputTxt col2 mrgR createPswd"  type="password" placeholder="Password" name="psw" required />
+						 <input id="Userpswd" class="inputTxt col2 createPswd"  type="password" placeholder="Confirm" name="psw" required />
+					</div>
+                
+                	<div class="pswdDisplayBtn">
+                        <div class="tooltip ShowPassword" onclick="HidePassword('createPswd')" style="display: none;">
+                            <i class="material-icons" >visibility_outline</i>
+                            <span class="tooltiptext">Hide password</span>
+                        </div>
+                        <div class="tooltip HidePassword" onclick="ShowPassword('createPswd')">
+                            <i class="material-icons" >visibility_off_outline</i>
+                            <span class="tooltiptext">Show password</span>
+                        </div>
+                    </div>
+                </div>
+               
+
+                <button type="submit" class="actionButton" style="margin-top: 18px">Create account</button>
+                
+            </div>
+            <div class="container" style="background-color: #f1f1f1; text-align: center; font-size: 14px; line-height: 1.4286; color: #232221;">Already have an account? <a href="#signin" style="color: #e91e63;" onclick="signinPage()">Sign in</a></div>
+        </form>
+    </body>
+    
+    
+    
+  	<script>
+  		function signupPage(){
+  			document.getElementById("signinAccount").style.display = 'none';
+  			document.getElementById("createAccount").style.display = 'block';
+  		}
+  		
+  		function signinPage(){
+  			document.getElementById("signinAccount").style.display = 'block';
+  			document.getElementById("createAccount").style.display = 'none';
+  		}
+  		  	
+  	
+  		function ShowPassword(className) {
+            document.querySelectorAll('.ShowPassword').forEach(elem => {
+  				elem.style.display = 'block';
+			});
+            document.querySelectorAll('.HidePassword').forEach(elem => {
+  				elem.style.display = 'none';
+			});	
+            
+            var pswdInput = document.querySelectorAll('.'+className);
+            pswdInput.forEach(elem => {
+  				elem.type = "text";
+			});			
+        }
+
+        function HidePassword(className) {          
+			document.querySelectorAll('.ShowPassword').forEach(elem => {
+  				elem.style.display = 'none';
+			});
+            document.querySelectorAll('.HidePassword').forEach(elem => {
+  				elem.style.display = 'block';
+			});	
+            
+            var pswdInput = document.querySelectorAll('.'+className);
+            pswdInput.forEach(elem => {
+  				elem.type = "password";
+			});	
+        }
+                
+	</script>
+    
+    
+</html>
