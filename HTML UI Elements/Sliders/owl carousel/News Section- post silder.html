@@ -1,268 +1,290 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>slider</title>
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-        <style>
-            body {
-                background: #f2f2f2;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-                font-size: 16px;
-            }
 
+<head>
+    <title>slider</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <style>
+        body {
+            background: #f2f2f2;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 16px;
+        }
+
+        .news-slider {
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .news-slider h2 {
+            font-size: 42px;
+            text-align: center;
+            color: #333;
+            padding: 12px;
+        }
+
+        .news-slider .btmline {
+            margin: auto;
+            height: 6px;
+            border-radius: 4px;
+            width: 54px;
+            background: #ff5050;
+        }
+
+        .news-slider .heading {
+            height: 54px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 6px;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .news-slider .owl-stage-outer {
+            padding: 30px 0;
+        }
+
+        .news-slider .owl-nav {
+            display: none;
+        }
+
+        .news-slider .owl-dots {
+            text-align: center;
+        }
+
+        .news-slider .owl-dots span {
+            position: relative;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: block;
+            background: #c4c4c4;
+            margin: 0 5px;
+        }
+
+        .news-slider .owl-dots .active {
+            box-shadow: none;
+        }
+
+        .news-slider .owl-dots .active span {
+            background: #ff5050;
+            box-shadow: none;
+            height: 12px;
+            width: 12px;
+            margin-bottom: -1px;
+        }
+
+        .news-slider .card {
+            background: #fff;
+            box-shadow: 0 8px 30px -7px #c9dff0;
+            margin: 0 20px;
+            padding: 0 10px;
+            border-radius: 20px;
+            border: 0;
+            overflow: hidden;
+        }
+
+        .news-slider .card .card-img-thumb {
+            height: 220px;
+            overflow: hidden;
+            margin: 0 -10px;
+        }
+
+        .news-slider .card .card-img-thumb img {
+            width: fit-content;
+            min-width: 100%;
+        }
+
+        .news-slider .card h5 span {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .news-slider .card p {
+            font-size: 18px;
+            color: #555;
+            padding-bottom: 15px;
+        }
+
+        .card-text {
+            text-align: left;
+            height: 108px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 767px) {
             .news-slider {
-                position: relative;
-                margin-top: 30px;
+                margin-top: 20px;
             }
+        }
 
-            .news-slider h2 {
-                font-size: 42px;
-                text-align: center;
-                color: #333;
-                padding: 12px;
-            }
+        .owl-carousel .owl-nav button.owl-next,
+        .owl-carousel .owl-nav button.owl-prev {
+            outline: 0;
+        }
 
-            .news-slider .btmline {
-                margin: auto;
-                height: 6px;
-                border-radius: 4px;
-                width: 54px;
-                background: #ff5050;
-            }
 
-            .news-slider .heading {
-                height: 54px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                margin-bottom: 6px;
-                font-size: 18px;
-                font-weight: 500;
-                line-height: 1.5;
-                text-align: left;
-            }
+        .news-slider {
+            max-width: 1100px;
+            margin-right: auto;
+            margin-left: auto;
+        }
 
-            .news-slider .owl-stage-outer {
-                padding: 30px 0;
-            }
+        .owl-carousel button.owl-dot {
+            outline: 0;
+        }
 
-            .news-slider .owl-nav {
-                display: none;
-            }
+        .card-footer {
+            background: transparent;
+            font-size: 18px;
+            color: #444;
+            padding-top: 28px;
+        }
+    </style>
+</head>
 
-            .news-slider .owl-dots {
-                text-align: center;
-            }
-
-            .news-slider .owl-dots span {
-                position: relative;
-                height: 10px;
-                width: 10px;
-                border-radius: 50%;
-                display: block;
-                background: #c4c4c4;
-                margin: 0 5px;
-            }
-
-            .news-slider .owl-dots .active {
-                box-shadow: none;
-            }
-
-            .news-slider .owl-dots .active span {
-                background: #ff5050;
-                box-shadow: none;
-                height: 12px;
-                width: 12px;
-                margin-bottom: -1px;
-            }
-
-            .news-slider .card {
-                background: #fff;
-                box-shadow: 0 8px 30px -7px #c9dff0;
-                margin: 0 20px;
-                padding: 0 10px;
-                border-radius: 20px;
-                border: 0;
-                overflow: hidden;
-            }
-
-            .news-slider .card .card-img-thumb {
-                height: 220px;
-                overflow: hidden;
-                margin: 0 -10px;
-            }
-
-            .news-slider .card .card-img-thumb img {
-                width: fit-content;
-                min-width: 100%;
-            }
-
-            .news-slider .card h5 span {
-                font-size: 18px;
-                color: #666;
-            }
-
-            .news-slider .card p {
-                font-size: 18px;
-                color: #555;
-                padding-bottom: 15px;
-            }
-
-            .card-text {
-                text-align: left;
-                height: 102px;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            @media (max-width: 767px) {
-                .news-slider {
-                    margin-top: 20px;
-                }
-            }
-
-            .owl-carousel .owl-nav button.owl-next,
-            .owl-carousel .owl-nav button.owl-prev {
-                outline: 0;
-            }
-
-            .owl-carousel button.owl-dot {
-                outline: 0;
-            }
-
-            .card-footer {
-                background: transparent;
-                font-size: 18px;
-                color: #444;
-                padding-top: 28px;
-            }
-        </style>
-    </head>
-
-    <body>
-        <div class="news-slider">
-            <h2>News Section</h2>
-            <div class="btmline" style="margin-bottom: 46px;"></div>
-            <div class="owl-carousel owl-carousel1 owl-theme">
-                <div>
-                    <div class="card text-center">
-                        <div class="card-img-thumb" style="background: url(https://cdn.pixabay.com/photo/2014/04/23/14/47/boy-330582_960_720.jpg); background-size: cover;"></div>
-                        <div class="card-body">
-                            <div class="heading">
-                                Covid-19: Harvard University student mobilises funds for India
-                            </div>
-                            <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat</p>
-                            <div class="card-footer">
-                                11 June 2021
-                            </div>
+<body>
+    <div class="news-slider">
+        <h2>News Section</h2>
+        <div class="btmline" style="margin-bottom: 46px;"></div>
+        <div class="owl-carousel owl-carousel1 owl-theme">
+            <div>
+                <div class="card text-center">
+                    <div class="card-img-thumb"
+                        style="background: url(https://cdn.pixabay.com/photo/2014/04/23/14/47/boy-330582_960_720.jpg); background-size: cover;">
+                    </div>
+                    <div class="card-body">
+                        <div class="heading">
+                            Covid-19: Harvard University student mobilises funds for India
+                        </div>
+                        <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                            impedit quo minus id quod maxime placeat</p>
+                        <div class="card-footer">
+                            11 June 2021
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    <div class="card text-center">
-                        <div class="card-img-thumb" style="background: url(https://cdn.pixabay.com/photo/2015/07/28/22/05/child-865116_960_720.jpg); background-size: cover;"></div>
-                        <div class="card-body">
-                            <div class="heading">
-                                Covid-19: Harvard University student mobilises funds for India
-                            </div>
-                            <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat</p>
-                            <div class="card-footer">
-                                11 June 2021
-                            </div>
+            <div>
+                <div class="card text-center">
+                    <div class="card-img-thumb"
+                        style="background: url(https://cdn.pixabay.com/photo/2015/07/28/22/05/child-865116_960_720.jpg); background-size: cover;">
+                    </div>
+                    <div class="card-body">
+                        <div class="heading">
+                            Covid-19: Harvard University student mobilises funds for India
+                        </div>
+                        <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                            impedit quo minus id quod maxime placeat</p>
+                        <div class="card-footer">
+                            11 June 2021
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    <div class="card text-center">
-                        <div class="card-img-thumb" style="background: url(https://cdn.pixabay.com/photo/2015/08/05/13/55/children-876543_960_720.jpg); background-size: cover;"></div>
-                        <div class="card-body">
-                            <div class="heading">
-                                Covid-19: Harvard University student mobilises funds for India
-                            </div>
-                            <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat</p>
-                            <div class="card-footer">
-                                11 June 2021
-                            </div>
+            <div>
+                <div class="card text-center">
+                    <div class="card-img-thumb"
+                        style="background: url(https://cdn.pixabay.com/photo/2015/08/05/13/55/children-876543_960_720.jpg); background-size: cover;">
+                    </div>
+                    <div class="card-body">
+                        <div class="heading">
+                            Covid-19: Harvard University student mobilises funds for India
+                        </div>
+                        <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                            impedit quo minus id quod maxime placeat</p>
+                        <div class="card-footer">
+                            11 June 2021
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    <div class="card text-center">
-                        <div class="card-img-thumb" style="background: url(https://cdn.pixabay.com/photo/2013/04/02/19/53/students-99506_960_720.jpg); background-size: cover;"></div>
-                        <div class="card-body">
-                            <div class="heading">
-                                Harvard University student mobilises funds for India - Harvard University student mobilises funds for India
-                            </div>
-                            <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat</p>
-                            <div class="card-footer">
-                                11 June 2021
-                            </div>
+            <div>
+                <div class="card text-center">
+                    <div class="card-img-thumb"
+                        style="background: url(https://cdn.pixabay.com/photo/2013/04/02/19/53/students-99506_960_720.jpg); background-size: cover;">
+                    </div>
+                    <div class="card-body">
+                        <div class="heading">
+                            Harvard University student mobilises funds for India - Harvard University student mobilises
+                            funds for India
+                        </div>
+                        <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                            impedit quo minus id quod maxime placeat</p>
+                        <div class="card-footer">
+                            11 June 2021
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    <div class="card text-center">
-                        <div class="card-img-thumb" style="background: url(https://cdn.pixabay.com/photo/2014/04/02/14/48/children-306607_960_720.jpg); background-size: cover;"></div>
-                        <div class="card-body">
-                            <div class="heading">
-                                Student mobilises funds for India
-                            </div>
-                            <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat</p>
-                            <div class="card-footer">
-                                11 June 2021
-                            </div>
+            <div>
+                <div class="card text-center">
+                    <div class="card-img-thumb"
+                        style="background: url(https://cdn.pixabay.com/photo/2014/04/02/14/48/children-306607_960_720.jpg); background-size: cover;">
+                    </div>
+                    <div class="card-body">
+                        <div class="heading">
+                            Student mobilises funds for India
+                        </div>
+                        <p class="card-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                            impedit quo minus id quod maxime placeat</p>
+                        <div class="card-footer">
+                            11 June 2021
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script>
-            (function () {
-                "use strict";
+    <script>
+        (function () {
+            "use strict";
 
-                var carousels = function () {
-                    $(".owl-carousel1").owlCarousel({
-                        loop: true,
-                        center: true,
-                        margin: 0,
-                        responsiveClass: true,
-                        nav: false,
-                        smartSpeed: 800,
-                        autoplay: true,
-                        autoplayTimeout: 3800,
-                        autoplayHoverPause: true,
-                        responsive: {
-                            0: {
-                                items: 1,
-                                nav: false,
-                            },
-                            680: {
-                                items: 2,
-                                nav: false,
-                            },
-                            1000: {
-                                items: 3,
-                                nav: true,
-                            },
-                            1200: {
-                                items: 5,
-                                nav: true,
-                            },
+            var carousels = function () {
+                $(".owl-carousel1").owlCarousel({
+                    loop: true,
+                    center: true,
+                    margin: 0,
+                    responsiveClass: true,
+                    nav: false,
+                    smartSpeed: 800,
+                    autoplay: true,
+                    autoplayTimeout: 3800,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false,
                         },
-                    });
-                };
+                        680: {
+                            items: 2,
+                            nav: false,
+                        },
+                        1000: {
+                            items: 3,
+                            nav: true,
+                        }
+                    },
+                });
+            };
 
-                (function ($) {
-                    carousels();
-                })(jQuery);
-            })();
-        </script>
-    </body>
+            (function ($) {
+                carousels();
+            })(jQuery);
+        })();
+    </script>
+</body>
+
 </html>
